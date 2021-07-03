@@ -61,30 +61,23 @@ class google_translator:
     '''
     You can use 108 language in target and source,details view LANGUAGES.
     Target language: like 'en'、'zh'、'th'...
-
     :param url_suffix: The source text(s) to be translated. Batch translation is supported via sequence input.
                        The value should be one of the url_suffix listed in : `DEFAULT_SERVICE_URLS`
     :type url_suffix: UTF-8 :class:`str`; :class:`unicode`; string sequence (list, tuple, iterator, generator)
-
     :param text: The source text(s) to be translated.
     :type text: UTF-8 :class:`str`; :class:`unicode`;
-
     :param lang_tgt: The language to translate the source text into.
                      The value should be one of the language codes listed in : `LANGUAGES`
     :type lang_tgt: :class:`str`; :class:`unicode`
-
     :param lang_src: The language of the source text.
                     The value should be one of the language codes listed in :const:`googletrans.LANGUAGES`
                     If a language is not specified,
                     the system will attempt to identify the source language automatically.
     :type lang_src: :class:`str`; :class:`unicode`
-
     :param timeout: Timeout Will be used for every request.
     :type timeout: number or a double of numbers
-
     :param proxies: proxies Will be used for every request.
     :type proxies: class : dict; like: {'http': 'http:171.112.169.47:19934/', 'https': 'https:171.112.169.47:19934/'}
-
     '''
 
     def __init__(self, url_suffix="cn", timeout=5, proxies=None):
@@ -148,7 +141,7 @@ class google_translator:
                 decoded_line = line.decode('utf-8')
                 if "MkEWBc" in decoded_line:
                     try:
-                        response = (decoded_line + ']')
+                        response = (decoded_line)
                         response = json.loads(response)
                         response = list(response)
                         response = json.loads(response[0][2])
@@ -230,7 +223,7 @@ class google_translator:
                     # regex_str = r"\[\[\"wrb.fr\",\"MkEWBc\",\"\[\[(.*).*?,\[\[\["
                     try:
                         # data_got = re.search(regex_str,decoded_line).group(1)
-                        response = (decoded_line + ']')
+                        response = (decoded_line)
                         response = json.loads(response)
                         response = list(response)
                         response = json.loads(response[0][2])
